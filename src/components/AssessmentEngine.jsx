@@ -318,6 +318,13 @@ const AssessmentEngine = () => {
         setShowResult(false);
     };
 
+    const handlePrevious = () => {
+        if (currentQuestionIndex > 0) {
+            setDirection(-1);
+            setCurrentQuestionIndex(prev => prev - 1);
+        }
+    };
+
     const result = showResult ? calculateSCL90Result(scores) : null;
 
 
@@ -688,6 +695,19 @@ const AssessmentEngine = () => {
                                             </motion.button>
                                         ))}
                                     </div>
+
+                                    {/* Previous Button */}
+                                    {currentQuestionIndex > 0 && (
+                                        <motion.button
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            onClick={handlePrevious}
+                                            className="mt-8 text-slate-400 hover:text-slate-600 transition-colors flex items-center justify-center gap-2 mx-auto text-sm group"
+                                        >
+                                            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                            返回上一题
+                                        </motion.button>
+                                    )}
                                 </>
                             )}
                         </motion.div>
