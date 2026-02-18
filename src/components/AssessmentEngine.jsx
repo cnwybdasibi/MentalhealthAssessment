@@ -69,7 +69,8 @@ const UnlockScreen = ({ mode, onUnlock, onClose }) => {
     }, [mode, status, onUnlock]);
 
     const handleCopyLink = () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
+        const shareText = `我刚刚做了一个超准的专业心理体检，免费解锁！你也来测测看？\n${window.location.href}`;
+        navigator.clipboard.writeText(shareText).then(() => {
             setStatus('awaiting_return');
         });
     };
@@ -98,10 +99,10 @@ const UnlockScreen = ({ mode, onUnlock, onClose }) => {
                             </motion.div>
                         )}
                     </div>
-                    <h3 className="text-2xl font-serif font-bold text-slate-800 mb-2">分享以解锁报告</h3>
+                    <h3 className="text-2xl font-serif font-bold text-slate-800 mb-2">推荐给朋友们</h3>
                     <p className="text-slate-500 mb-8 max-w-xs mx-auto text-sm leading-relaxed">
-                        您的“极简体验”报告已生成。<br />
-                        <span className="text-rose-500 font-medium">请分享给好友，或切换APP后返回即可解锁。</span>
+                        为了让更多人关注心理健康，<br />
+                        <span className="text-rose-500 font-medium">请将本站分享到微信群或朋友圈，让温暖传递。</span>
                     </p>
 
                     {status === 'idle' && (
@@ -109,20 +110,20 @@ const UnlockScreen = ({ mode, onUnlock, onClose }) => {
                             onClick={handleCopyLink}
                             className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-4 rounded-full shadow-lg shadow-rose-200 transition-all active:scale-95 flex items-center justify-center gap-2"
                         >
-                            <Copy className="w-5 h-5" /> 复制链接去分享
+                            <Copy className="w-5 h-5" /> 复制推荐语去分享
                         </button>
                     )}
 
                     {status === 'awaiting_return' && (
                         <div className="space-y-4">
                             <div className="bg-orange-50 text-orange-600 px-4 py-3 rounded-xl text-sm border border-orange-100 flex items-center gap-2 animate-pulse font-medium">
-                                <ExternalLink className="w-4 h-4" /> 链接已复制！请切换到微信粘贴
+                                <ExternalLink className="w-4 h-4" /> 链接已复制！请前往微信粘贴分享
                             </div>
                             <p className="text-xs text-slate-400">
-                                系统监测到您返回应用时将自动解锁...
+                                分享成功后，深度报告将自动为您呈现...
                             </p>
                             <button className="w-full bg-slate-100 text-slate-400 font-bold py-4 rounded-full flex items-center justify-center gap-2 cursor-wait">
-                                等待跳转返回...
+                                等待分享完成...
                             </button>
                         </div>
                     )}
@@ -578,8 +579,8 @@ const AssessmentEngine = () => {
 
                                 {/* LOCK OVERLAY - Only shows if NOT unlocked */}
                                 {!isUnlocked && (
-                                    <div className="absolute inset-x-0 top-[10%] z-20 flex flex-col items-center justify-start text-center p-6 min-h-[500px]">
-                                        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/60 max-w-sm w-full mx-auto sticky top-24">
+                                    <div className="absolute inset-x-0 top-0 z-20 flex flex-col items-center justify-start text-center p-6 pt-12 min-h-[500px]">
+                                        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/60 max-w-sm w-full mx-auto sticky top-12">
                                             <div className="w-14 h-14 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-500 shadow-sm">
                                                 <Lock className="w-7 h-7" />
                                             </div>
