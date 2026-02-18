@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindHaven - 你的心灵栖息地</title>
+  <!-- 引入 Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入高雅的衬线字体和现代无衬线字体 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Nunito:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // 治愈系：温暖的玫瑰、柔和的薰衣草、奶油色
+            rose: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              300: '#fda4af',
+              400: '#fb7185',
+              500: '#f43f5e',
+            },
+            lavender: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              500: '#8b5cf6',
+            },
+            cream: '#fdfbf7', // 暖调背景
+            text: {
+              main: '#475569', // 柔和的深灰，不刺眼
+              light: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Nunito', 'system-ui', 'sans-serif'], // 圆润亲和
+            serif: ['"Noto Serif SC"', 'serif'], // 优雅知性
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'breathe': 'breathe 4s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            breathe: {
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.02)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      /* 奶油色 + 极淡的粉紫渐变，营造温馨感 */
+      background: linear-gradient(135deg, #fdfbf7 0%, #fff1f2 50%, #f3e8ff 100%);
+      color: #475569;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* 柔和的白玻璃效果 */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 40px -10px rgba(255, 228, 230, 0.5);
+      /* 粉色柔光阴影 */
+    }
+
+    /* 优雅的标题字体 */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: '"Noto Serif SC"', serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
