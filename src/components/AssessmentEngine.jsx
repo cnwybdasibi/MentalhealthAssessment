@@ -131,7 +131,7 @@ const UnlockScreen = ({ mode, onUnlock, onClose }) => {
         }
 
         // 2 & 3. Rapid & Full (Trust Mode Payment)
-        const price = '1.00'; // User requested 1 Yuan
+        const price = '9.90'; // User requested 9.90 Yuan
 
         // Render Payment QR Screen if selected
         if (status === 'scanning' || status === 'completed') {
@@ -578,9 +578,9 @@ const AssessmentEngine = () => {
 
                                 {/* LOCK OVERLAY - Only shows if NOT unlocked */}
                                 {!isUnlocked && (
-                                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6">
-                                        <div className="bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/50 max-w-sm w-full mx-auto transform translate-y-12">
-                                            <div className="w-14 h-14 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-500">
+                                    <div className="absolute inset-x-0 top-[10%] z-20 flex flex-col items-center justify-start text-center p-6 min-h-[500px]">
+                                        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/60 max-w-sm w-full mx-auto sticky top-24">
+                                            <div className="w-14 h-14 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-500 shadow-sm">
                                                 <Lock className="w-7 h-7" />
                                             </div>
                                             <h4 className="text-xl font-bold text-slate-800 mb-2">解锁深度临床解读</h4>
@@ -591,7 +591,7 @@ const AssessmentEngine = () => {
                                                 onClick={() => testMode === 'minimal' ? setShowUnlockModal(true) : setShowUnlockModal(true)}
                                                 className="w-full py-3.5 bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-white rounded-full font-bold shadow-lg shadow-slate-200 transition-all active:scale-95 flex items-center justify-center gap-2"
                                             >
-                                                {testMode === 'minimal' ? '分享免费解锁' : '支持我们 (¥1.00)'} <ChevronRight className="w-4 h-4" />
+                                                {testMode === 'minimal' ? '分享免费解锁' : '支持我们 (¥9.90)'} <ChevronRight className="w-4 h-4" />
                                             </button>
                                             <p className="text-[10px] text-slate-400 mt-3">
                                                 {testMode === 'minimal' ? '只需简单分享即可' : '每一份支持都让我们走得更远'}
